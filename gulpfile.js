@@ -79,7 +79,7 @@ const scss = () => {
 const fonts = async () => {
   const ttf2woff2 = (await import('gulp-ttf2woff2')).default
 
-  return src('./src/assets/fonts/**/*.ttf')
+  return src('./src/assets/fonts/**/*.ttf', { encoding: false })
     .pipe(
       plumber({
         errorHandler: notify.onError((error) => ({
