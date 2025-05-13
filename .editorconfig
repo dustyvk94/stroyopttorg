@@ -1,0 +1,18 @@
+# Общие настройки для всех файлов
+root = true
+
+[*]
+charset = utf-8
+indent_style = tab
+indent_size = 2
+end_of_line = lf
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# Настройки для Markdown
+[*.md]
+trim_trailing_whitespace = false  # Игнорировать пробелы в конце строк (важно для Markdown)
+
+# Настройки для JavaScript/TypeScript/JSON
+[*.{js,ts,json}]
+indent_size = 2
