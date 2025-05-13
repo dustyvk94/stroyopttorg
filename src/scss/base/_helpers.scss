@@ -10,6 +10,14 @@
   }
 }
 
+@function em($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + em;
+  } @else {
+    @error 'Не используйте единицы измерения при работе с функцией em()! Передавайте аргументом только числа.';
+  }
+}
+
 @function fluid($max: 100, $min: 10) {
   $maxViewportWidth: 1670;
   $minViewportWidth: 360;
