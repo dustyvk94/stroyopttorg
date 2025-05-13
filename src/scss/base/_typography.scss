@@ -1,0 +1,13 @@
+@use 'base/helpers' as *;
+
+.heading {
+  @include fluid-text(33, 26);
+
+  font-weight: 700;
+  line-height: 1.2;
+  margin-block: 0;
+
+  &--big {
+    @include fluid-text(48, 30);
+  }
+}
