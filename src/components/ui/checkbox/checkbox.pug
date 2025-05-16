@@ -1,0 +1,8 @@
+mixin checkbox(name, labelText,	checked = false,	required = true, disabled = false)
+	label.checkbox
+		span.checkbox__col
+			input.checkbox__input(
+				type="checkbox" name=name required=required checked=checked disabled=disabled
+			)
+			span.checkbox__box(aria-hidden="true")
+		span.checkbox__text= labelText

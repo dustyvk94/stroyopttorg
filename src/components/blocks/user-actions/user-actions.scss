@@ -1,0 +1,93 @@
+@use '../../../scss/helpers' as *;
+
+.user-actions {
+  display: flex;
+  column-gap: rem(4);
+  align-items: center;
+  list-style: none;
+  padding-left: 0;
+  margin-block: 0;
+
+  @include mobile-m {
+    column-gap: rem(12);
+  }
+
+  @include mobile {
+    column-gap: rem(20);
+  }
+
+  @include desktop-s {
+    column-gap: rem(26);
+  }
+
+  &__item {
+    &--stocks {
+      display: none;
+
+      @include mobile {
+        display: block;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: rem(14);
+    text-decoration: none;
+    color: var(--tc-secondary);
+    row-gap: rem(8);
+  }
+
+  &__icon {
+    stroke: var(--color-icon-dark);
+
+    &--cart {
+      path:not(:first-child) {
+        fill: var(--color-icon-dark);
+      }
+    }
+  }
+
+  &__text {
+    display: none;
+    line-height: 1;
+
+    @include mobile-m {
+      display: block;
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    right: rem(-4);
+    top: rem(-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: rem(15);
+    min-width: rem(15);
+    font-weight: 500;
+    font-size: rem(10);
+    color: var(--COLOR-LIGHT);
+    background-color: var(--color-danger);
+    padding-inline: rem(4);
+
+    @include mobile-m {
+      &--comparison {
+        right: rem(16);
+      }
+
+      &--favorites {
+        right: rem(14);
+      }
+
+      &--cart {
+        right: rem(6);
+      }
+    }
+  }
+}

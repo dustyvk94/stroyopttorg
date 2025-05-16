@@ -1,0 +1,81 @@
+@use '../../../scss/helpers' as *;
+
+.checkbox {
+  display: inline-flex;
+  column-gap: rem(10);
+  align-items: start;
+  user-select: none;
+
+  &__input {
+    appearance: none;
+
+    &:checked {
+      + .checkbox__box {
+        border-color: var(--color-accent);
+        background-color: var(--color-accent);
+
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+
+    &:disabled,
+    &:disabled:checked {
+      + .checkbox__box {
+        border-color: #696d70;
+        background-color: #696d70;
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+
+    &:disabled:checked {
+      + .checkbox__box {
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+
+    &:focus-visible {
+      outline: none;
+
+      + .checkbox__box {
+        box-shadow: 0 0 0 2px #000;
+      }
+    }
+  }
+
+  &__box {
+    display: inline-grid;
+    place-items: center;
+    border: var(--border);
+    border-radius: 4px;
+    width: rem(26);
+    height: rem(26);
+    background-color: var(--COLOR-LIGHT);
+    transition:
+      background-color 0.2s ease-in-out,
+      border-color 0.2s ease-in-out;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      width: rem(12);
+      height: rem(9);
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='9' viewBox='0 0 12 9' fill='none'%3e%3cpath d='M1.5 5L4.5 8L10.5 2' stroke='white' stroke-width='2' stroke-linecap='square' stroke-linejoin='round'/%3e%3c/svg%3e");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+    }
+  }
+
+  &__text {
+    font-size: rem(13);
+    line-height: 1.6;
+    color: var(--tc-secondary);
+  }
+}

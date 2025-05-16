@@ -1,0 +1,10 @@
+include ../../blocks/forms/forms
+
+#orderingCallback.hystmodal.modal(aria-hidden='true')
+	.hystmodal__wrap
+		.hystmodal__window(role='dialog' aria-modal='true')
+			button.hystmodal__close(data-hystclose='') Close
+			.modal__content
+				.modal__head
+					h4.modal__title Заказать обратный звонок
+				+form-ordering

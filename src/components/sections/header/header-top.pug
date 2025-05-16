@@ -1,0 +1,11 @@
+include ../../blocks/mobile-navigation/mixin
+
+.header-top
+	.header-top__container.container
+		include ../../blocks/burger/burger
+		+mobile-navigation-main
+		include ../../blocks/site-navigation/site-navigation
+		.header-top__info
+			p.header-top__work-time= globals.workTime
+			a.header-top__phone(href=`tel:${globals.phoneMainTel}` aria-label="Телефон отдела продаж")= globals.phoneMain
+			button.header-top__order-call(type="button" data-hystmodal="#orderingCallback") Заказать звонок

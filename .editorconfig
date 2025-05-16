@@ -16,3 +16,7 @@ trim_trailing_whitespace = false  # Игнорировать пробелы в �
 # Настройки для JavaScript/TypeScript/JSON
 [*.{js,ts,json}]
 indent_size = 2
+max_line_length = 120
+
+[*.{html, scss}]
+max_line_length = 80

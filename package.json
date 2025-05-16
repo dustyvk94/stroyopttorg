@@ -33,6 +33,8 @@
 		"webpack-stream": "^7.0.0"
 	},
 	"dependencies": {
-		"modern-normalize": "^3.0.1"
+		"hystmodal": "^1.0.1",
+		"modern-normalize": "^3.0.1",
+		"wicg-inert": "^3.1.3"
 	}
 }

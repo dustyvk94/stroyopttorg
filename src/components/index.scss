@@ -1,0 +1,16 @@
+/* stylelint-disable at-rule-empty-line-before */
+
+@forward 'ui/button/button';
+@forward 'ui/checkbox/checkbox';
+
+@forward 'blocks/burger/burger';
+@forward 'blocks/mobile-navigation/mobile-navigation';
+@forward 'blocks/logo/logo';
+@forward 'blocks/site-navigation/site-navigation';
+@forward 'blocks/catalog-menu/catalog-menu';
+@forward 'blocks/site-search/site-search';
+@forward 'blocks/user-actions/user-actions';
+@forward 'blocks/forms/forms';
+
+@forward 'sections/header/header';
+@forward 'features/modal/modal';

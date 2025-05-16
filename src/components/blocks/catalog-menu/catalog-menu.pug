@@ -1,0 +1,7 @@
+include ../mobile-navigation/mixin
+
+.catalog-menu
+	button.catalog-menu__trigger(type="button" aria-expanded='false' aria-controls="category-nav")
+		span.catalog-menu__trigger-icon
+		span.catalog-menu__trigger-text Каталог
+	+mobile-navigation-category

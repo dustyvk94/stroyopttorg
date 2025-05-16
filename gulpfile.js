@@ -1,4 +1,5 @@
 import fs from 'fs'
+import { pipeline } from 'stream/promises'
 
 import { src, dest, series, watch } from 'gulp'
 
@@ -25,7 +26,8 @@ const sass = gulpSass(dartSass)
 const loadJSON = (filePath) => JSON.parse(fs.readFileSync(filePath, 'utf8'))
 
 const data = {
-  globals: loadJSON('./src/data/globals.json'),
+  globals: loadJSON('./src/pug/data/globals.json'),
+  navLinks: loadJSON('./src/pug/data/nav-links.json'),
 }
 
 const clean = () => {
@@ -66,8 +68,6 @@ const scss = () => {
     .pipe(
       autoprefixer({
         cascade: false,
-        grid: true,
-        overrideBrowserslist: ['last 2 versions'],
       })
     )
     .pipe(dest('./public/styles', { sourcemaps: true }))
@@ -119,6 +119,43 @@ const icons = () => {
     .pipe(dest('./public/assets/icons'))
 }
 
+const favicon = async () => {
+  await pipeline(
+    src('./src/assets/favicon/folder/*.*', { encoding: false }),
+    plumber({
+      errorHandler: notify.onError((error) => ({
+        title: 'Favicon Folder',
+        message: error.message,
+      })),
+    }),
+    dest('./public/assets/favicon')
+  )
+
+  await pipeline(
+    src('./src/assets/favicon/server/*.*', { encoding: false }),
+    plumber({
+      errorHandler: notify.onError((error) => ({
+        title: 'Favicon Server',
+        message: error.message,
+      })),
+    }),
+    dest('./public')
+  )
+}
+
+const dataSite = () => {
+  return src('./src/data/*.json')
+    .pipe(
+      plumber({
+        errorHandler: notify.onError((error) => ({
+          title: 'dataSite',
+          message: error.message,
+        })),
+      })
+    )
+    .pipe(dest('./public/data'))
+}
+
 const scripts = () => {
   return src('./src/scripts/*.js')
     .pipe(
@@ -138,7 +175,7 @@ const scripts = () => {
       webpack({
         mode: 'development',
         entry: {
-          index: '/src/scripts/main.js',
+          index: './src/scripts/main.js',
         },
         output: {
           filename: '[name].bundle.js',
@@ -166,8 +203,8 @@ const watcher = () => {
 
   watch('./src/**/*.pug', pugs).on('all', browserSync.reload)
   watch('./src/**/*.scss', scss).on('all', browserSync.reload)
-  watch('./src/assets/images/**/*.*', images).on('all', browserSync.reload)
+  watch(['./src/assets/images/**/*.*', './src/assets/icons/**/*.*'], images).on('all', browserSync.reload)
   watch('./src/**/*.js', scripts).on('all', browserSync.reload)
 }
 
-export default series(clean, fonts, images, icons, pugs, scss, scripts, watcher)
+export default series(clean, fonts, images, icons, favicon, pugs, scss, scripts, dataSite, watcher)

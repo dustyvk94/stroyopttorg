@@ -6,12 +6,23 @@ html.page(lang="ru")
 	head
 		meta(charset="UTF-8")
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
 		title=title
+		meta(name="description", content=description)
+
+		include ../includes/favicon
+
 		block styles
-			link(rel="stylesheet" href="styles/main.css")
+			link(rel="stylesheet" href="styles/main.min.css")
+
 		block scripts
 			script(src="scripts/index.bundle.js" defer)
 	body.page__body
 		//- Header
+		include ../../components/sections/header/header
+		//- Main
 		block main
 		//- Footer
+
+		//- Modals
+		include ../../components/features/modal/modal

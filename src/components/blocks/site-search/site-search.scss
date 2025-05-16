@@ -1,0 +1,54 @@
+@use '../../../scss/helpers' as *;
+
+.site-search {
+  display: flex;
+  align-items: center;
+  border-radius: rem(8);
+  padding: rem(2);
+  width: 100%;
+  background-color: var(--color-accent);
+
+  @include mobile {
+    padding: rem(3);
+  }
+
+  &__field {
+    flex-grow: 1;
+    border: none;
+    border-radius: rem(6);
+    padding: rem(10);
+    height: rem(42);
+    min-width: rem(100);
+    font-family: inherit;
+    font-size: rem(14);
+    color: var(--tc-primary);
+    background-color: var(--COLOR-LIGHT);
+
+    &::placeholder {
+      color: #a0a3a5;
+    }
+
+    @include mobile {
+      height: rem(46);
+      padding-inline: rem(16);
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: rem(12);
+    height: rem(42);
+    background-color: transparent;
+
+    @include mobile {
+      padding-inline: rem(20);
+    }
+
+    &-icon {
+      stroke: var(--COLOR-LIGHT);
+    }
+  }
+}

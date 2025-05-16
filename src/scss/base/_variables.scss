@@ -1,5 +1,7 @@
 /* stylelint-disable custom-property-empty-line-before */
 
+@use '../helpers' as *;
+
 :root {
   --font-family-base: 'HelveticaNeueCyr', sans-serif;
 
@@ -12,7 +14,11 @@
   --tc-primary: #2c333d;
   --tc-secondary: #6b6c72;
 
-  --border: 1px solid #eaeaea;
+  --border: #{rem(1)} solid #eaeaea;
 
   --bgc-section: #f9fafb;
+
+  --color-overlay: rgb(1 17 32 / 90%);
+
+  --color-icon-dark: #16191e;
 }

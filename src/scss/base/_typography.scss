@@ -1,4 +1,4 @@
-@use 'base/helpers' as *;
+@use '../helpers' as *;
 
 .heading {
   @include fluid-text(33, 26);

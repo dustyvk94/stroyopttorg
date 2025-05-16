@@ -1,0 +1,45 @@
+@use '../../../scss/helpers' as *;
+
+.burger {
+  position: relative;
+  display: flex;
+  column-gap: rem(10);
+  align-items: center;
+  border: none;
+  padding: 0;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--tc-primary);
+  background-color: transparent;
+
+  @include laptop-m {
+    display: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: rem(44);
+    height: rem(44);
+    translate: -50% -50%;
+
+    @include mobile-s {
+      display: none;
+    }
+  }
+
+  &__icon {
+    stroke: currentcolor;
+    pointer-events: none;
+  }
+
+  &__text {
+    display: none;
+
+    @include mobile-s {
+      display: block;
+    }
+  }
+}

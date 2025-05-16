@@ -1,0 +1,43 @@
+mixin mobile-navigation-main
+	#mobile-nav.mobile-navigation.mobile-navigation--menu(inert)
+		.mobile-navigation__overlay
+			.mobile-navigation__body
+				.mobile-navigation__head
+					p.mobile-navigation__title Меню
+					button.mobile-navigation__close(type="button" aria-label="Закрыть меню")
+						svg.mobile-navigation__close-icon(xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8' fill='none' aria-hidden="true")
+							path(d='M7.5 0.5L0.5 7.5M0.5 0.5L7.5 7.5' stroke-linecap='round' stroke-linejoin='round')
+				nav.mobile-navigation__inner(aria-label="Мобильное меню")
+					ul.mobile-navigation__list
+						li.mobile-navigation__item
+							a.mobile-navigation__link(href="#!")
+								svg.mobile-navigation__link-icon(xmlns='http://www.w3.org/2000/svg' width='23' height='23' viewBox='0 0 23 23' fill='none' aria-hidden="true")
+									path(d='M11.5 6.8337V22M11.5 6.8337C11.078 5.09472 10.3514 3.60802 9.41486 2.56749C8.47836 1.52697 7.37547 0.980902 6.25 1.00051C5.47645 1.00051 4.73459 1.30779 4.18761 1.85476C3.64062 2.40173 3.33333 3.14358 3.33333 3.91711C3.33333 4.69064 3.64062 5.43248 4.18761 5.97945C4.73459 6.52642 5.47645 6.8337 6.25 6.8337M11.5 6.8337C11.922 5.09472 12.6486 3.60802 13.5851 2.56749C14.5216 1.52697 15.6245 0.980902 16.75 1.00051C17.5235 1.00051 18.2654 1.30779 18.8124 1.85476C19.3594 2.40173 19.6667 3.14358 19.6667 3.91711C19.6667 4.69064 19.3594 5.43248 18.8124 5.97945C18.2654 6.52642 17.5235 6.8337 16.75 6.8337M19.6667 11.5003V19.6667C19.6667 20.2855 19.4208 20.879 18.9832 21.3166C18.5457 21.7542 17.9522 22 17.3333 22H5.66667C5.04783 22 4.45434 21.7542 4.01675 21.3166C3.57917 20.879 3.33333 20.2855 3.33333 19.6667V11.5003M1 8.00034C1 7.69093 1.12292 7.39419 1.34171 7.1754C1.5605 6.95662 1.85725 6.8337 2.16667 6.8337H20.8333C21.1428 6.8337 21.4395 6.95662 21.6583 7.1754C21.8771 7.39419 22 7.69093 22 8.00034V10.3336C22 10.643 21.8771 10.9398 21.6583 11.1586C21.4395 11.3773 21.1428 11.5003 20.8333 11.5003H2.16667C1.85725 11.5003 1.5605 11.3773 1.34171 11.1586C1.12292 10.9398 1 10.643 1 10.3336V8.00034Z' stroke-width='1.6' stroke-miterlimit='10')
+								span.mobile-navigation__link-text Все акции
+						each link in navLinks.site
+							li.mobile-navigation__item
+								a.mobile-navigation__link(href=link.url)= link.title
+				.mobile-navigation__footer
+					a.header-top__phone(href=`tel:${globals.phoneMainTel}` aria-label="Телефон отдела продаж")= globals.phoneMain
+					button.header-top__order-call(type="button" data-hystmodal="#orderingCallback") Заказать звонок
+					p.header-top__work-time= globals.workTime
+
+mixin mobile-navigation-category
+	#category-nav.mobile-navigation.mobile-navigation--category(inert)
+		.mobile-navigation__overlay
+			.mobile-navigation__body
+				.mobile-navigation__head
+					button.mobile-navigation__button-back(type="button" aria-label="Назад")
+						svg(xmlns='http://www.w3.org/2000/svg' width='14' height='12' viewBox='0 0 14 12' fill='none')
+							path(d='M0.505025 5.50502C0.231658 5.77839 0.231658 6.22161 0.505025 6.49497L4.9598 10.9497C5.23316 11.2231 5.67638 11.2231 5.94975 10.9497C6.22311 10.6764 6.22311 10.2332 5.94975 9.9598L1.98995 6L5.94975 2.0402C6.22311 1.76683 6.22311 1.32362 5.94975 1.05025C5.67638 0.776885 5.23317 0.776885 4.9598 1.05025L0.505025 5.50502ZM14 5.3L1 5.3L1 6.7L14 6.7L14 5.3Z' fill='#8A9198')
+					p.mobile-navigation__title Категории товара
+					button.mobile-navigation__close(type="button" aria-label="Закрыть меню")
+						svg.mobile-navigation__close-icon(xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8' fill='none' aria-hidden="true")
+							path(d='M7.5 0.5L0.5 7.5M0.5 0.5L7.5 7.5' stroke-linecap='round' stroke-linejoin='round')
+				.mobile-navigation__inner
+					ul.mobile-navigation__list.mobile-navigation__list--first
+						//- Добавляется динамически с помощью JS из файла "data/categories.json"
+					ul.mobile-navigation__list.mobile-navigation__list--second
+						//- Добавляется динамически с помощью JS из файла "data/categories.json"
+					ul.mobile-navigation__list.mobile-navigation__list--links
+						//- Добавляется динамически с помощью JS из файла "data/categories.json"

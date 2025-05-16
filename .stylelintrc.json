@@ -398,6 +398,7 @@
 				]
 			}
 		],
+		"media-feature-range-notation": "prefix",
 		"at-rule-no-unknown": null,
 		"at-rule-no-vendor-prefix": true,
 		"declaration-no-important": true,

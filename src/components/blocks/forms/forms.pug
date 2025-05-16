@@ -1,0 +1,22 @@
+include ../../ui/checkbox/checkbox
+include ../../ui/button/button
+
+mixin form-ordering
+	form.form.form--modal(action="#" method="post" aria-label="Форма авторизации")
+		.form__field
+			label.form__label(for="name") Ваше имя #[span *]:
+			input.form__input(id="name" type="text" name="name" placeholder="Введите ваше имя" required)
+		.form__field
+			label.form__label(for="phone") Номер телефона #[span *]:
+			input.form__input(id="phone" type="text" name="phone" placeholder="+7 (___) ___ - ___ - ___" required)
+		.form__field
+			+checkbox(
+				"processing",
+				"Согласен с обработкой персональных данных в соответствии с политикой конфиденциальности"
+			)
+		.form__row
+			+button(
+				"submit",
+				"primary",
+				"Перезвоните мне"
+			)(class="form__button")

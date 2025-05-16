@@ -1,0 +1,29 @@
+@use '../../../scss/helpers' as *;
+
+.site-navigation {
+  display: none;
+
+  @include laptop-m {
+    display: block;
+  }
+
+  &__list {
+    display: flex;
+    column-gap: rem(15);
+    align-items: center;
+    list-style: none;
+    padding-left: 0;
+    margin-block: 0;
+
+    @include desktop-s {
+      column-gap: rem(30);
+    }
+  }
+
+  &__link {
+    display: block;
+    font-size: rem(14);
+    text-decoration: none;
+    color: var(--tc-secondary);
+  }
+}

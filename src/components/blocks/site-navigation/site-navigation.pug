@@ -1,0 +1,5 @@
+nav.site-navigation(aria-label="Главная навигация")
+	ul.site-navigation__list
+		each link in navLinks.site
+			li.site-navigation__item
+				a.site-navigation__link(href=link.url)= link.title

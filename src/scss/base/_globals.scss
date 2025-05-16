@@ -1,9 +1,14 @@
-@use 'helpers' as *;
+@use '../helpers' as *;
 
 .page {
   height: 100%;
 
+  &--lock {
+    overflow: hidden;
+  }
+
   &__body {
+    position: relative;
     height: inherit;
     min-width: rem(360);
     font-family: var(--font-family-base);
@@ -23,7 +28,7 @@
   margin-inline: auto;
   padding-inline: rem($padding);
 
-  @media (width >= em(768)) {
+  @include mobile {
     padding-inline: rem(25);
   }
 }

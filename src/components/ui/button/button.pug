@@ -1,0 +1,17 @@
+mixin button(type='button', style, text, href='#!')
+	if type === "button"
+		button(class=`button button--${style}` type="button")&attributes(attributes)
+			!=text
+			block
+	else if type === "link"
+		a(class=`button button--${style}` href=href)&attributes(attributes)
+			!=text
+			block
+	else if type === "submit"
+		button(class=`button button--${style}` type="submit")&attributes(attributes)
+			!=text
+			block
+	else if type === "reset"
+		button(class=`button button--${style}` type="reset")&attributes(attributes)
+			!=text
+			block

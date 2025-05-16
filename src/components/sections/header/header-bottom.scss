@@ -1,0 +1,56 @@
+@use '../../../scss/helpers' as *;
+
+.header-bottom {
+  border-bottom: var(--border);
+  padding-block: rem(15);
+
+  @include laptop-m {
+    padding-block: rem(26);
+  }
+
+  &__container {
+    display: grid;
+    align-items: center;
+    grid-template-columns:
+      minmax(rem(134), rem(154)) repeat(2, minmax(rem(5), rem(40)))
+      minmax(rem(150), 1fr);
+    grid-template-rows: minmax(rem(40), auto) minmax(rem(46), auto);
+    gap: rem(20) rem(10);
+
+    @include laptop-m {
+      display: flex;
+      column-gap: rem(20);
+      justify-content: space-between;
+    }
+
+    @include desktop-s {
+      column-gap: rem(40);
+    }
+  }
+
+  &__logo {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    font-size: 0;
+  }
+
+  &__catalog-menu {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+
+  &__search {
+    grid-column: 2 / -1;
+    grid-row: 2 / 3;
+
+    @include laptop-m {
+      flex-grow: 1;
+    }
+  }
+
+  &__actions {
+    justify-self: end;
+    grid-column: 4 / -1;
+    grid-row: 1 / 2;
+  }
+}
